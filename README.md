@@ -2,7 +2,7 @@
 
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10674624.svg)](https://doi.org/10.5281/zenodo.10674624) 
-![Github](https://img.shields.io/badge/language-python-red.svg) <br>
+![Github](https://img.shields.io/badge/logo-javascript-blue?logo=javascript) <br>
 
 [![GitHub issues](https://img.shields.io/github/issues/aadithya-naresh/Weather)](https://github.com/aadithya-naresh/Weather/issues)
 
