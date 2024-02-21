@@ -1,7 +1,9 @@
 const request = require('request')
 
 const forecast = (latitude,longitude,callback) => {
-    const forecast='https://api.darksky.net/forecast/b829f39012c57bad3156143d69a8abfc/'+latitude+','+longitude+'?units=si'
+    const API_KEY = 'bdcd493145ba86c907c75d6f04965f85'
+    const forecast = 'https://api.openweathermap.org/data/2.5/weather?lat='+latitude+'&lon='+longitude+'&appid='+API_KEY
+    // const forecast='https://api.darksky.net/forecast/b829f39012c57bad3156143d69a8abfc/'+latitude+','+longitude+'?units=si'
    
     request({url:forecast, json:true},(error,response) => {
         if(error){
@@ -10,7 +12,7 @@ const forecast = (latitude,longitude,callback) => {
             callback('Unable to find the location!',undefined)
         }else{
              callback(undefined,{
-                forecast: response.body.daily.data[0].summary+" The temperature outside is "+response.body.currently.temperature+" degrees"+". There is a "+response.body.currently.precipProbability+"% chance  of raining"+".The high today (in °C) is "+response.body.daily.data[0].temperatureHigh+" with a low of "+response.body.daily.data[0].temperatureLow
+                forecast: " The temperature outside is "+ ( parseInt(response.body.main.temp)-273.15 ).toPrecision(2) +"°C "+" but feels like "+ ( parseInt(response.body.main.feels_like)-273.15 ).toPrecision(2) +"°C "+". The high today (in °C) is "+ ( parseInt(response.body.main.temp_max)-273.15 ).toPrecision(2) +" with a low of "+ ( parseInt(response.body.main.temp_min)-273.15 ).toPrecision(2) +". A description for the weather today: "+ ( response.body.weather[0].description )
         })
         }
     })
